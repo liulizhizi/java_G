@@ -20,6 +20,7 @@ public class packagedargwin extends Application {
     // 创建无标题窗口
     this.stage = new Stage();
     this.stage.initStyle(StageStyle.UNDECORATED);
+
     this.stage.setResizable(false);
 
     // 创建一个空的 Pane
@@ -44,6 +45,7 @@ public class packagedargwin extends Application {
     // 将按钮和 Pane 添加到场景中
     pane.getChildren().add(closeButton);
     Scene scene = new Scene(pane, 300, 200);
+    scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm()); // 导入 CSS 文件
     scene.setFill(Color.TRANSPARENT);
     this.stage.setScene(scene);
   }
@@ -54,6 +56,10 @@ public class packagedargwin extends Application {
 
   public void close() {
     this.stage.close();
+  }
+
+  public final boolean isShowing() {
+    return this.stage.isShowing();
   }
 
   public static void main(String[] args) {

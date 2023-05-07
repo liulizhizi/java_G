@@ -13,30 +13,30 @@ import javafx.stage.Stage;
 
 public class test3 extends Application {
 
-  private final ObservableList<Person> data =
+  private final ObservableList<Control_List> data =
       FXCollections.observableArrayList(
-          new Person("John", "Doe"),
-          new Person("Jane", "Doe"),
-          new Person("Bob", "Smith")
+          new Control_List("John", "Doe"),
+          new Control_List("Jane", "Doe"),
+          new Control_List("Bob", "Smith")
       );
 
   @Override
   public void start(Stage primaryStage) {
-    TableView<Person> tableView = new TableView<>();
-    TableColumn<Person, String> firstNameColumn = new TableColumn<>("First Name");
-    firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
+    TableView<Control_List> tableView = new TableView<>();
+    TableColumn<Control_List, String> firstNameColumn = new TableColumn<>("Ctr_Name");
+    firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().con_NameProperty());
     firstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
     firstNameColumn.setOnEditCommit(event -> {
-      Person person = event.getRowValue();
-      person.setFirstName(event.getNewValue());
+      Control_List controlList = event.getRowValue();
+      controlList.setCon_Name(event.getNewValue());
     });
 
-    TableColumn<Person, String> lastNameColumn = new TableColumn<>("Last Name");
-    lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+    TableColumn<Control_List, String> lastNameColumn = new TableColumn<>("Ctr_ID");
+    lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().con_IDProperty());
     lastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
     lastNameColumn.setOnEditCommit(event -> {
-      Person person = event.getRowValue();
-      person.setLastName(event.getNewValue());
+      Control_List controlList = event.getRowValue();
+      controlList.setCon_ID(event.getNewValue());
     });
 
 
@@ -55,37 +55,37 @@ public class test3 extends Application {
     launch(args);
   }
 
-  public static class Person {
-    private final SimpleStringProperty firstName;
-    private final SimpleStringProperty lastName;
+  public static class Control_List {
+    private final SimpleStringProperty Con_Name;
+    private final SimpleStringProperty Con_ID;
 
-    public Person(String firstName, String lastName) {
-      this.firstName = new SimpleStringProperty(firstName);
-      this.lastName = new SimpleStringProperty(lastName);
+    public Control_List(String Con_Name, String Con_ID) {
+      this.Con_Name = new SimpleStringProperty(Con_Name);
+      this.Con_ID = new SimpleStringProperty(Con_ID);
     }
 
-    public String getFirstName() {
-      return firstName.get();
+    public String getCon_Name() {
+      return Con_Name.get();
     }
 
-    public void setFirstName(String firstName) {
-      this.firstName.set(firstName);
+    public void setCon_Name(String con_Name) {
+      this.Con_Name.set(con_Name);
     }
 
-    public SimpleStringProperty firstNameProperty() {
-      return firstName;
+    public SimpleStringProperty con_NameProperty() {
+      return Con_Name;
     }
 
-    public String getLastName() {
-      return lastName.get();
+    public String getCon_ID() {
+      return Con_ID.get();
     }
 
-    public void setLastName(String lastName) {
-      this.lastName.set(lastName);
+    public void setCon_ID(String con_ID) {
+      this.Con_ID.set(con_ID);
     }
 
-    public SimpleStringProperty lastNameProperty() {
-      return lastName;
+    public SimpleStringProperty con_IDProperty() {
+      return Con_ID;
     }
   }
 }

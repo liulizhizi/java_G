@@ -11,11 +11,14 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import se7.GUI.dragwin;
+
 public class testnewwin extends Application {
 
   @Override
   public void start(Stage primaryStage) {
     // 创建一个VBox，用于放置Button
+
     VBox root = new VBox();
     root.setSpacing(10);
     root.setAlignment(Pos.CENTER);
@@ -32,18 +35,23 @@ public class testnewwin extends Application {
     newWindowRoot.setCenter(rectangle);
 
     // 创建一个新的Stage，并设置其Scene和样式
-    Stage newWindow = new Stage();
-    Scene newWindowScene = new Scene(newWindowRoot, 300, 200);
-    newWindow.initStyle(StageStyle.UTILITY);
-    newWindow.setScene(newWindowScene);
+    //Stage newWindow = new Stage();
+    //    Scene newWindowScene = new Scene(newWindowRoot, 300, 200);
+    //    newWindow.initStyle(StageStyle.UTILITY);
+    //    newWindow.setScene(newWindowScene);
+
+    dragwin pa = new dragwin();
+
+    pa.initOwner(primaryStage);
 
     newWindowButton.setOnAction(event -> {
-      if (newWindow.isShowing()) {
-        newWindow.close();
+      if (pa.isShowing()) {
+        pa.close();
         newWindowButton.setText("查看控件");
         System.out.println("Stage is open");
       } else {
-        newWindow.show();
+
+        pa.show();
         newWindowButton.setText("关闭查看");
         System.out.println("Stage is not open");
       }

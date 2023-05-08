@@ -1,10 +1,13 @@
 package se7.GUI;
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
@@ -16,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Callback;
 import se7.test3.Control_List;
 
 public class dragwin extends Stage {
@@ -29,8 +33,11 @@ public class dragwin extends Stage {
           new Control_List("Bob", "Smith")
       );
 
-  public dragwin() {
+  public dragwin(Stage father_stage) {
+
     super(StageStyle.TRANSPARENT);
+
+    this.initOwner(father_stage);
     // 创建无标题窗口
     this.setResizable(false);
 
@@ -64,25 +71,42 @@ public class dragwin extends Stage {
     TableView<Control_List> tableView = new TableView<>();
     tableView.setMinWidth(width-20);
     tableView.setPrefWidth(160);
+    // 设置calFactory工作内容
+    Callback<TableColumn<Control_List, String>, TableCell<Control_List, String>> cellFactory = col -> {
+      TableCell<Control_List, String> cell = new TableCell<>() {
+        @Override
+        protected void updateItem(String item, boolean empty) {
+          super.updateItem(item, empty);
+          setText(empty ? null : getString());
+        }
+
+        private String getString() {
+          return getItem() == null ? "" : getItem().toString();
+        }
+      };
+
+      cell.setOnMouseClicked(e -> {
+        if (!cell.isEmpty()) {
+          String value1 = cell.getItem();
+
+          ((Callback<String, Void>) father_stage.getUserData()).call(value1);
+
+        }
+      });
+
+      return cell;
+    };
+
     TableColumn<Control_List, String> NameColumn = new TableColumn<>("Ctr_Name");
     NameColumn.setMinWidth(50); // 设置最小宽度
     NameColumn.setPrefWidth(width/2-10); // 设置首选宽度
     NameColumn.setCellValueFactory(cellData -> cellData.getValue().con_NameProperty());
-    NameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-    NameColumn.setOnEditCommit(event -> {
-      Control_List controlList = event.getRowValue();
-      controlList.setCon_Name(event.getNewValue());
-    });
 
     TableColumn<Control_List, String> IDColumn = new TableColumn<>("Ctr_ID");
     IDColumn.setMinWidth(50); // 设置最小宽度
     IDColumn.setPrefWidth(width/2-10); // 设置首选宽度
     IDColumn.setCellValueFactory(cellData -> cellData.getValue().con_IDProperty());
-    IDColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-    IDColumn.setOnEditCommit(event -> {
-      Control_List controlList = event.getRowValue();
-      controlList.setCon_ID(event.getNewValue());
-    });
+    IDColumn.setCellFactory(cellFactory);
 
 
     tableView.setItems(data);
@@ -109,12 +133,19 @@ public class dragwin extends Stage {
       if (toggleButton.isSelected()) {
         toggleButton.setText("更改已开启");
         tableView.setEditable(true);
+        NameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        NameColumn.setOnEditCommit(event1 -> {
+          Control_List controlList = event1.getRowValue();
+          controlList.setCon_Name(event1.getNewValue());
+        });
         IDColumn.setEditable(false);
       } else {
         toggleButton.setText("更改已关闭");
         tableView.setEditable(false);
+        NameColumn.setCellFactory(cellFactory);
       }
     });
+
 
     root1.getChildren().addAll(pane, pane1, pane2);
     root1.setPrefSize(width,height+100);

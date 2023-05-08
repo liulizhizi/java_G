@@ -1,9 +1,12 @@
 package se7;
 
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -11,9 +14,13 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javafx.util.Callback;
 import se7.GUI.dragwin;
+import se7.GUI.dragwin.Control_List;
 
 public class testnewwin extends Application {
+
+  private String callbackID;
 
   @Override
   public void start(Stage primaryStage) {
@@ -39,10 +46,14 @@ public class testnewwin extends Application {
     //    Scene newWindowScene = new Scene(newWindowRoot, 300, 200);
     //    newWindow.initStyle(StageStyle.UTILITY);
     //    newWindow.setScene(newWindowScene);
+    dragwin pa = new dragwin(primaryStage);
+    primaryStage.setUserData((Callback<String, Void>) newValue -> {
+      // 在回调函数中更改参数值
+      System.out.println("参数值更改为：" + newValue);
+      this.callbackID = newValue;
+      return null;
+    });
 
-    dragwin pa = new dragwin();
-
-    pa.initOwner(primaryStage);
 
     newWindowButton.setOnAction(event -> {
       if (pa.isShowing()) {

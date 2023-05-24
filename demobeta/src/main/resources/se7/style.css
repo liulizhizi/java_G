@@ -1,0 +1,25 @@
+.root {
+    -fx-background-radius: 10px; /* 边框圆角半径为 10 像素 */
+    -fx-border-radius: 10px; /* 边框圆角半径为 10 像素 */
+    -fx-padding: 20px;
+    -fx-background-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);
+
+}
+
+.button {
+    -fx-background-color: #00BAAD;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 4px;
+}
+
+.button:pressed {
+    -fx-background-color: #3e8e41;
+    -fx-border-color: #3e8e41;
+}
+.text-area{
+
+    -fx-effect: dropshadow(gaussian, #00BAAD, 10, 0, 0, 0);
+}

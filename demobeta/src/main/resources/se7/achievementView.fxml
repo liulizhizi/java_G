@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se7.achievementController">
+   <children>
+      <ImageView fitHeight="540.0" fitWidth="720.0" pickOnBounds="true">
+         <image>
+            <Image url="@2bf07edf147610dcd6c04517984f20cc.jpg" />
+         </image>
+         <effect>
+            <GaussianBlur radius="25.75" />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="67.0" layoutY="192.0" prefHeight="248.0" prefWidth="590.0">
+         <children>
+            <TextArea fx:id="Field" layoutX="74.0" layoutY="64.0" prefHeight="205.0" prefWidth="443.0" />
+            <TextArea fx:id="Title" layoutX="355.0" prefHeight="38.0" prefWidth="145.0" />
+<!--            <TextArea fx:id="Date" layoutX="13.0" layoutY="7.0" prefHeight="11.0" prefWidth="119.0" />-->
+            <TextArea fx:id="Date" layoutX="74.0" layoutY="1.0" prefHeight="32.0" prefWidth="133.0" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="125.0" layoutY="66.0" prefHeight="68.0" prefWidth="581.0" text="Keep Your Achievement!">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="Save" layoutX="329.0" layoutY="476.0" mnemonicParsing="false" onAction="#saveText" text="Save">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font></Button>
+      <Label layoutX="424.0" layoutY="154.0" prefHeight="38.0" prefWidth="73.0" text="Title">
+         <font>
+            <Font name="Microsoft Uighur" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="145.0" layoutY="159.0" prefHeight="22.0" prefWidth="215.0" text="Date">
+         <font>
+            <Font name="Microsoft Uighur" size="22.0" />
+         </font>
+      </Label>
+<!--      <Button fx:id="Mainpage" layoutX="27.0" layoutY="119.0" mnemonicParsing="false" onAction="#toMainpage" prefHeight="23.0" prefWidth="79.0" text="Mainpage" />-->
+<!--      <Button fx:id="Notepad" layoutX="27.0" layoutY="207.0" mnemonicParsing="false" onAction="#toNotepad" prefHeight="23.0" prefWidth="79.0" text="Notepad" />-->
+<!--      <Button fx:id="GPArecord" layoutX="27.0" layoutY="295.0" mnemonicParsing="false" onAction="#toGPArecord" text="GPA record" />-->
+<!--      <Button layoutX="374.0" layoutY="393.0" mnemonicParsing="false" text="Save" />-->
+   </children>
+</AnchorPane>

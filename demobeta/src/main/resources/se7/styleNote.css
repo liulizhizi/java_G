@@ -1,0 +1,13 @@
+.background-container {
+    -fx-background-color: #86829A;
+}
+
+.button {
+    -fx-background-color: #C89A3A;
+    -fx-border-radius: 2px;
+}
+
+.button:pressed {
+    -fx-background-color: #7F572B;
+    -fx-border-color: #7F572B;
+}

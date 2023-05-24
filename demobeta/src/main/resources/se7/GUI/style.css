@@ -1,0 +1,14 @@
+.root1 {
+    -fx-background-radius: 10px; /* 边框圆角半径为 10 像素 */
+    -fx-border-radius: 10px; /* 边框圆角半径为 10 像素 */
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, black, 10, 0, 0, 0);
+    -fx-pref-width: 270;
+    -fx-pref-height: 350;
+}
+
+.root {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}

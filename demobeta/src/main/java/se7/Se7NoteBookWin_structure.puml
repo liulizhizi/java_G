@@ -1,0 +1,290 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "se7.Se7NoteBookWin",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_113701 { 
+   	label=se7
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Se7NoteBookWin113701[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Se7NoteBookWin</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   LCreateRoot: Pane [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   LinkButton_i: AutoNumber [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   LinkImage_i: AutoNumber [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   NoteBook_i: AutoNumber [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   RControlRoot: VBox [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SaveField: TextField [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SaveLabel: Label [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SaveName: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   TopRoot: HBox [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buttonCLB: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buttonCLI: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buttonCNB: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buttonChange: ToggleButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buttonLoad: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buttonSave: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buttonSetImage: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buttonSetImageLink: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   buttondelete: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   callbackCTR: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   callbackID: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   diffX: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   diffY: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   editable: ToggleButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   imageLinkLabel: Label [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   imageLinkTF: TextField [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   imageViewLabel: Label [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   imageViewTF: TextField [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   lastHeight: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   lastWidth: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   lastX: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   lastY: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   newWindowButton: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pa: dragwin [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pa_save: List&lt;ControlInfo&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   root: BorderPane [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   sceneN: Scene [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scrollPane: ScrollPane [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spinner1: Spinner&lt;Double&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spinner2: Spinner&lt;Double&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spinner3: Spinner&lt;Double&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spinner4: Spinner&lt;Double&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spinnerLabel1: Label [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spinnerLabel2: Label [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spinnerLabel3: Label [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spinnerLabel4: Label [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   subStage: Stage [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+<TR><TD ALIGN="LEFT" >+ notebookEdit(pane: Pane, Boolean: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ notebookUnbind(pane: Pane)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readCSV(filePath: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ start(primaryStage: Stage)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1445582840 { 
+   	label=Function
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1130101563 { 
+   	label=utils
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   AutoNumber5445596[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AutoNumber</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   nextNumber: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   unusedNumbers: List&lt;Integer&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ releaseNumber(number: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+CSVPersonalReader5445596[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)CSVPersonalReader</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+<TR><TD ALIGN="LEFT" >+ parseCSV(filePath: String): List&lt;String[]&gt;</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ControlInfo5445596[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ControlInfo</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   content: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   height: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   image: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   link: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   width: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   x: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   y: double [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+subgraph cluster_70939 { 
+   	label=GUI
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   dragwin1927487442[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)dragwin</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   data: ObservableList&lt;Control_List&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   father_stage: Stage [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   next: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tableView: TableView&lt;Control_List&gt; [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   width: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   xOffset: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   yOffset: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ deleteItem(Con_ID: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ saveControlInfoToCSV(controlInfoList: List&lt;ControlInfo&gt;, path: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ saveControlInfoToCSV(controlInfoList: List&lt;ControlInfo&gt;, path: String, Name: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ tableNewItem(Con_Name: String, Con_ID: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ traversePane(pane: Pane): List&lt;ControlInfo&gt;</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+subgraph cluster_876020651 { 
+   	label=dragwin
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Control_List437493748[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Control_List</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   Con_ID: SimpleStringProperty [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   Con_Name: SimpleStringProperty [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ con_IDProperty(): SimpleStringProperty</TD></TR>
+<TR><TD ALIGN="LEFT" >+ con_NameProperty(): SimpleStringProperty</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+Se7NoteBookWin113701 -> AutoNumber5445596[label="LinkButton_i
+[0..1]"];
+Se7NoteBookWin113701 -> AutoNumber5445596[label="LinkImage_i
+[0..1]"];
+Se7NoteBookWin113701 -> AutoNumber5445596[label="NoteBook_i
+[0..1]"];
+Se7NoteBookWin113701 -> CSVPersonalReader5445596[label="readCSV() -> parseCSV()"];
+Se7NoteBookWin113701 -> ControlInfo5445596[label="pa_save
+[0..*]"];
+Se7NoteBookWin113701 -> dragwin1927487442[label="pa
+[0..1]"];
+dragwin1927487442 -> Control_List437493748[label="data
+[0..*]"];
+dragwin1927487442 -> Control_List437493748[label="tableView
+[0..1]"];
+    
+}
+@enduml
